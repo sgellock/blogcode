@@ -13,6 +13,6 @@ The project's directory structure has the current layout:
 ```
 .
 ├── /classPatterns/             # a folder containing JavaScript examples of different class patterns
-├── LICENSE                   	# all code is licensed using the MIT license agreement
+├── LICENSE                     # all code is licensed using the MIT license agreement
 └── README.md                   # the file you are currently enjoying
 ```
