@@ -1,0 +1,27 @@
+{
+  "name": "classpatterns",
+  "version": "1.0.0",
+  "description": "JavaScript Class Pattern Examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgellock/blogcode.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "gellock",
+    "samples"
+  ],
+  "author": "Scott Gellock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sgellock/blogcode/issues"
+  },
+  "homepage": "https://github.com/sgellock/blogcode#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
