@@ -1,46 +1,56 @@
 "use strict";
 
-const _ = require("lodash");
-
 // ES5 module pattern
 
-const person = (function(who){
-	let me = who || 'Anonymous';
+let Person = (function(){
+	let me = 'Anonymous';
 
-	const identify = function() {
-		return me;
+	const publicAPI = function(who) {
+		this.me = who;
 	};
 
-
-	const publicAPI = {
-		speak: function() {
-    		console.log('Hello, ' + identify() + ' here.');
-		},
+	publicAPI.prototype.identify = function() {
+	    return this.me;
 	};
+
+	publicAPI.prototype.speak = function() {
+    	console.log('Hello, ' + this.identify() + ' here.');
+	};
+
 	return publicAPI;
-})('Kanye');
-
-
-// call our function
-person.speak();
+})();
 
 
 // prove our private stuff is indeed private
-// console.log(foo.who);
+// const person = new Person('Biggie Smalls');
+// console.log(person.who);
 
 
-const rapper = (function(parentModule){
-	const lyric = 'Like we always do at this time\nI go for mine, I got to shine';
+const Rapper = (function(parentModule){
+	const __super__ = parentModule.prototype;
+	const lyric     = 'Like we always do at this time\nI go for mine, I got to shine';
 
-	const publicAPI = _.extend(parentModule, {
-		rap: function() {
-			console.log(lyric);
-		}
+	const publicAPI = function(who) {
+		parentModule.apply(this, arguments);
+	};
 
-	});
+	publicAPI.prototype = Object.create(__super__);
+
+	// publicAPI.prototype.identify = function() {
+	// 	const temp = __super__.identify.call(this);
+	// 	return temp + " (aka Mr. West)";
+	// };
+
+	publicAPI.prototype.rap = function() {
+		__super__.identify.call(this);
+		console.log(lyric);
+	};
 
 	return publicAPI;
-})(person);
 
+})(Person);
 
-rapper.rap();
+let r = new Rapper('Kanye');
+
+r.speak();
+r.rap();

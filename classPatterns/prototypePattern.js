@@ -21,7 +21,7 @@ Rapper.prototype = Object.create(Person.prototype);
 
 Rapper.prototype.identify = function() {
     // call the "parent"
-    let temp = Person.prototype.identify.call(this);
+    const temp = Person.prototype.identify.call(this);
     return temp + " (aka Mr. West)";
 };
 
@@ -30,6 +30,6 @@ Rapper.prototype.rap = function() {
     console.log('Like we always do at this time\nI go for mine, I got to shine');
 };
 
-let r = new Rapper('Kanye');
+const r = new Rapper('Kanye');
 r.speak();
 r.rap();

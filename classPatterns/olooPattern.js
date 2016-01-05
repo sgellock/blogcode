@@ -20,7 +20,7 @@ const Person = {
 const Rapper = Object.create(Person);
 Rapper.identify = function() {
     // call the "parent"
-    let temp = Person.identify.call(this);
+    const temp = Person.identify.call(this);
     return temp + " (aka Mr. West)";
 };
 
